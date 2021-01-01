@@ -30,6 +30,11 @@ jobs:
       
     - name: Lint Action
       uses: wearerequired/lint-action@v1.7.0
+      with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Enable linters
+          eslint: true
+          prettier: true
         
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
