@@ -29,8 +29,8 @@ jobs:
       run: npm test -- --coverage
       
     - name: Run linters
-        uses: wearerequired/lint-action@v1
-        with:
+      uses: wearerequired/lint-action@v1
+      with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # Enable linters
           eslint: true
