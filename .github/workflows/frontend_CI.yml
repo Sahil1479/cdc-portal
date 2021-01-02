@@ -31,11 +31,9 @@ jobs:
           npm run format
     
     - name: Run ESLint
-      uses: wearerequired/lint-action@v1
-      with:
-          eslint-config-path: "./frontend/eslintrc"
-          custom-directory: "./frontend"
-          repo-token: ${{secrets.GITHUB_TOKEN}}
+      working-directory: ./frontend
+      run: |
+          npm run lint
       
     - name: Run the tests and generate coverage report
       working-directory: ./frontend
