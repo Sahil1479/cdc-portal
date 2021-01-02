@@ -1,4 +1,4 @@
-name: ReactCI
+name: FrontendCI
 
 on: [push, pull_request]
 
@@ -22,21 +22,21 @@ jobs:
     
     - name: Install dependencies
       working-directory: ./frontend
-      run: yarn install
+      run: npm install
     
     - name: Lint
       working-directory: ./frontend
       run: |
-          yarn lint
-          yarn format
+          npm lint
+          npm format
       
     - name: Run the tests and generate coverage report
       working-directory: ./frontend
-      run: yarn test -- --coverage
+      run: npm test -- --coverage
         
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
 
     - name: Build
       working-directory: ./frontend
-      run: yarn run build --if-present
+      run: npm run build --if-present
