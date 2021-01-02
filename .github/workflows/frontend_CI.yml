@@ -22,21 +22,21 @@ jobs:
     
     - name: Install dependencies
       working-directory: ./frontend
-      run: npm install
+      run: yarn install
     
-    - name: Format
+    - name: Lint
       working-directory: ./frontend
       run: |
-          npm ci
-          npm run format
+          yarn lint
+          yarn format
       
     - name: Run the tests and generate coverage report
       working-directory: ./frontend
-      run: npm test -- --coverage
+      run: yarn test -- --coverage
         
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
 
     - name: Build
       working-directory: ./frontend
-      run: npm run build --if-present
+      run: yarn run build --if-present
