@@ -24,11 +24,18 @@ jobs:
       working-directory: ./frontend
       run: npm install
     
-    - name: Lint
+    - name: Format
       working-directory: ./frontend
       run: |
-          npm lint
-          npm format
+          npm ci
+          npm run format
+    
+    - name: Run ESLint
+      uses: wearerequired/lint-action@v1
+      with:
+          eslint-config-path: "./frontend/eslintrc"
+          custom-directory: "./frontend"
+          repo-token: ${{secrets.GITHUB_TOKEN}}
       
     - name: Run the tests and generate coverage report
       working-directory: ./frontend
