@@ -24,12 +24,10 @@ jobs:
       working-directory: ./frontend
       run: npm install
     
-    - name: Run ESLint
-      uses: ninosaurus/eslint-check@v5.3.1
-      with:
-          eslint-config-path: ".eslintrc"
-          custom-directory: "./frontend"
-          repo-token: ${{secrets.GITHUB_TOKEN}}
+    - name: Format
+      run: |
+          npm ci
+          npm run format
       
     - name: Run the tests and generate coverage report
       working-directory: ./frontend
